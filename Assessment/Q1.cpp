@@ -29,7 +29,7 @@ public:
 
     // Function to display the help screen
     void displayHelpScreen() {
-        cout << "Help Screen: Please contact customer support at 1800-123-4567 for assistance." << std::endl;
+        cout << "Help Screen: Please contact customer support at 1800-123-4567 for assistance." << endl;
     }
 
     // Function to check the account balance
