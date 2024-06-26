@@ -1,28 +1,17 @@
 2. What is Normalization?
-Database normalization is the process of structuring a relational database to reduce data redundancy and improve data integrity. It ensures that data is organized efficiently, preventing anomalies and ensuring accurate information. Let’s dive into the details:
+Normalization is a process used in database design to organize data efficiently and minimize redundancy. It involves structuring a database into tables with well-defined relationships to reduce duplication of information and improve data integrity.
 
-Purpose of Normalization:
-Efficiency:
- Normalization optimizes data storage and retrieval by eliminating redundancy.
-Data Integrity: It prevents anomalies (insert, update, and delete) that can occur due to poor data organization.
-Accuracy: 
-Ensures consistent and reliable data.
-Normal Forms:
-First Normal Form (1NF): 
-Each attribute (column) contains only atomic (indivisible) values, and there are no repeating groups.
-Second Normal Form (2NF):
- All non-key attributes depend fully on the entire primary key (no partial dependencies).
-Third Normal Form (3NF):
- Eliminates transitive dependencies (attributes depending on other non-key attributes).
-Example:
-Let’s consider a student database with the following attributes:
-Student ID
-Student Name
-Fees Paid
-Course Name
-Classes attended (Class 1, Class 2, Class 3)
-Without normalization, we might have data redundancy and anomalies. For instance, if Maria Griffin attends both “Computer Science” and “Biology” classes, we’d store her name twice, leading to redundancy. By normalizing the database, we’d create separate tables for students, courses, and classes, linking them appropriately. This would improve efficiency, accuracy, and data integrity.
-Benefits of Normalization:
-Space Efficiency: Reduces storage space by eliminating redundant data.
-Query Performance: Well-organized data allows faster queries.
-Data Consistency: Ensures consistent data across tables.
+Here are some key aspects of Normalization:
+
+Reduces Data Redundancy: By eliminating the need to store the same piece of data in multiple places, normalization saves storage space and minimizes the chance of inconsistencies arising from duplicated information.
+
+Improves Data Integrity: Normalization ensures data is stored in a consistent and logical way. This makes it easier to maintain the accuracy of the data, as any updates only need to be made in one place.
+
+Enhances Data Efficiency: A well-normalized database allows for faster data retrieval and manipulation. By organizing data efficiently, queries and other operations can be performed more quickly.
+
+There are different levels of normalization, referred to as "normal forms." Each form has specific criteria that a database table needs to meet to be considered normalized. Common normal forms include:
+
+First Normal Form (1NF): Eliminates repeating groups of data within a single table.
+Second Normal Form (2NF): Ensures all columns depend on the entire primary key, not just a part of it.
+Third Normal Form (3NF): Removes any columns that depend on non-key attributes (other than the primary key).
+Normalization is a crucial concept for designing effective databases. It helps to streamline data organization, minimize errors, and ensure data integrity, leading to a more reliable and efficient database system.
