@@ -1,0 +1,67 @@
+
+mysql> CREATE TABLE Customers (
+    ->     customer_id INT,
+    ->     cust_name VARCHAR(100),
+    ->     city VARCHAR(100),
+    ->     grade INT,
+    ->     salesman_id INT
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+
+mysql> select * from customers;
++-------------+----------------+------------+-------+-------------+
+| customer_id | cust_name      | city       | grade | salesman_id |
++-------------+----------------+------------+-------+-------------+
+|        3002 | Nick Rimando   | New york   |   100 |        5001 |
+|        3007 | Brad Davis     | New york   |   200 |        5001 |
+|        3005 | Graham Zusi    | California |   300 |        5002 |
+|        3008 | Julian green   | London     |   300 |        5006 |
+|        3004 | Fabian Johnson | Paris      |   300 |        5002 |
+|        3009 | Geoff Cameron  | Berlin     |   100 |        5003 |
+|        3003 | Jozy Altidor   | Moscow     |   200 |        5007 |
+|        3001 | Brad Guzan     | London     |   100 |        5005 |
++-------------+----------------+------------+-------+-------------+
+
+mysql> CREATE TABLE salesman (
+       salesman_id INT,
+       name VARCHAR(100),
+       city VARCHAR(100),
+       commission DECIMAL(10, 2)
+     );
+
+mysql> select * from salesman;
++-------------+------------+----------+------------+
+| salesman_id | name       | city     | commission |
++-------------+------------+----------+------------+
+|        5001 | James Hoog | New York |       0.15 |
+|        5002 | Nail Knite | Paris    |       0.13 |
+|        5005 | Pit Alex   | London   |       0.11 |
+|        5006 | Mc Lyon    | Paris    |       0.14 |
+|        5007 | Paul Adam  | Rome     |       0.13 |
+|        5003 | Lauson Hen | San Jose |       0.12 |
++-------------+------------+----------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT
+    ->     a.cust_name AS "Customer Name",
+    ->     a.city,
+    ->     b.name AS "Salesman",
+    ->     b.commission
+    -> FROM
+    ->     customers a
+    -> INNER JOIN
+    ->     salesman b ON a.salesman_id = b.salesman_id;
++----------------+------------+------------+------------+
+| Customer Name  | city       | Salesman   | commission |
++----------------+------------+------------+------------+
+| Nick Rimando   | New york   | James Hoog |       0.15 |
+| Brad Davis     | New york   | James Hoog |       0.15 |
+| Graham Zusi    | California | Nail Knite |       0.13 |
+| Julian green   | London     | Mc Lyon    |       0.14 |
+| Fabian Johnson | Paris      | Nail Knite |       0.13 |
+| Geoff Cameron  | Berlin     | Lauson Hen |       0.12 |
+| Jozy Altidor   | Moscow     | Paul Adam  |       0.13 |
+| Brad Guzan     | London     | Pit Alex   |       0.11 |
++----------------+------------+------------+------------+
+8 rows in set (0.01 sec)

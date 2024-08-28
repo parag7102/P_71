@@ -1,0 +1,38 @@
+
+/*
+ * 1.Write a Java program to Take three numbers from the user and print the greatest number.
+ */
+package Assign;
+import java.util.Scanner;  
+
+public class Q1{  
+    public static void main(String[] args) {  
+        Scanner scanner = new Scanner(System.in);  
+
+         
+        System.out.print("Enter the first number: ");  
+        int num1 = scanner.nextInt();  
+
+        System.out.print("Enter the second number: ");  
+        int num2 = scanner.nextInt();  
+
+        System.out.print("Enter the third number: ");  
+        int num3 = scanner.nextInt();  
+
+          
+        int Largest;  
+        if (num1 >= num2 && num1 >= num3) {  
+        	Largest = num1;  
+        } else if (num2 >= num1 && num2 >= num3) {  
+        	Largest = num2;  
+        } else {  
+        	Largest = num3;  
+        }  
+
+         
+        System.out.println("The Largest number is: " + Largest);  
+
+        
+        scanner.close();  
+    }  
+}
